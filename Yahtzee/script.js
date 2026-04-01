@@ -1124,22 +1124,22 @@ $(function(){
 					//add new dice image
 					switch(newRoll){
 						case 1:
-							$(results[i]).append('<img class="diceImage" src="one.png" width="200"/>');
+							$(results[i]).append('<img class="diceImage" src="dice/one.png" width="200"/>');
 							break;
 						case 2:
-							$(results[i]).append('<img class="diceImage" src="two.png" width="200"/>');
+							$(results[i]).append('<img class="diceImage" src="dice/two.png" width="200"/>');
 							break;
 						case 3:
-							$(results[i]).append('<img class="diceImage" src="three.png" width="200"/>');
+							$(results[i]).append('<img class="diceImage" src="dice/three.png" width="200"/>');
 							break;
 						case 4:
-							$(results[i]).append('<img class="diceImage" src="four.png" width="200"/>');
+							$(results[i]).append('<img class="diceImage" src="dice/four.png" width="200"/>');
 							break;
 						case 5:
-							$(results[i]).append('<img class="diceImage" src="five.png" width="200"/>');
+							$(results[i]).append('<img class="diceImage" src="dice/five.png" width="200"/>');
 							break;
 						case 6:
-							$(results[i]).append('<img class="diceImage" src="six.png" width="200" />');
+							$(results[i]).append('<img class="diceImage" src="dice/six.png" width="200" />');
 					}			
 				}
 			}						

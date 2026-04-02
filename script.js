@@ -12,4 +12,4 @@ async function getData(){
     console.error(error);
   }
 }
-alert(2);
+alert("a");

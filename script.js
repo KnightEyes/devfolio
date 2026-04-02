@@ -1,3 +1,3 @@
 fetch("https://knighteyes.github.io/devfolio/data.json")
-  .then(response => console.log(response))
-  .catch(error => console.error(error));
+  .then(response => alert(response))
+  .catch(error => alert(error));

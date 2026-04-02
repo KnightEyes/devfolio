@@ -1,7 +1,4 @@
 
-
-getData();
-
 fetch("https://knighteyes.github.io/devfolio/data.json")
 .then(response => {
   if(!response.ok)

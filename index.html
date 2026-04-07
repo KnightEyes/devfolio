@@ -19,7 +19,7 @@
 		fetch("https://knighteyes.github.io/devfolio/book.json")
 			.then(response => {
 				if(!response.ok)
-					throw new Error('HTTP ERROR. Status ' + ${response.status});
+					throw new Error('HTTP ERROR. Status ' + response.status);
 				return response.json();
 			})
 			.then(data => console.log(data))

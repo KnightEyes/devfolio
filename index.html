@@ -18,8 +18,10 @@
 		//Data from JSON file
 
 		async function getText(file) {
-		  let myObject = await fetch(file);
-		  let myText = await myObject.text();
+		  let response = await fetch(file);
+			if(!response.ok)
+					throw new Error('HTTP ERROR. Status', response.json);
+		  let myText = await response.text();
 		  alert(myText);
 		}
 

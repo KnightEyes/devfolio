@@ -15,17 +15,18 @@
 
 
 	<script>
+		
 		//Data from JSON file
-		async function getText(file) {
+		const data = 'https://knighteyes.github.io/devfolio/data.json';
+		
+		async function getData(file) {
 		  let response = await fetch(file);
 			if(!response.ok)
 					throw new Error('HTTP ERROR. Status', response.json);
-		  let myText = await response.json();
-		  alert(myText["one"]);
+		  let data = await response.json();
+			return data;
 		}
-
-		getText("https://knighteyes.github.io/devfolio/data.json");
-
+		
 	</script>
 
 	

@@ -16,6 +16,16 @@
 
 	<script>
 		//Data from JSON file
+
+		async function getText(file) {
+		  let myObject = await fetch(file);
+		  let myText = await myObject.text();
+		  myDisplay(myText);
+		}
+
+		getText("https://knighteyes.github.io/devfolio/data.json");
+
+		/*
 		async function getData(){
 			try{
 				const response = await fetch("https://knighteyes.github.io/devfolio/data.json");
@@ -30,6 +40,8 @@
 		}
 
 		alert(getData());
+		
+		*/
 		
 
 	</script>

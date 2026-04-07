@@ -20,7 +20,7 @@
 		async function getText(file) {
 		  let myObject = await fetch(file);
 		  let myText = await myObject.text();
-		  myDisplay(myText);
+		  alert(myText);
 		}
 
 		getText("https://knighteyes.github.io/devfolio/data.json");

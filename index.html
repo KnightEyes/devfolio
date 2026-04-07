@@ -20,7 +20,7 @@
 		  let response = await fetch(file);
 			if(!response.ok)
 					throw new Error('HTTP ERROR. Status', response.json);
-		  let myText = await response.text();
+		  let myText = await response.json();
 		  alert(myText);
 		}
 

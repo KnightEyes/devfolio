@@ -353,41 +353,20 @@ $(function(){
 		}
 	});
 	//Uppers
-	$("#ones").on("click", function(){
-		event.preventDefault();
-		$("input[name=dice]").prop("checked", false);
-		if($("#roll").hasClass("hide")){
-			if(!$("input[name=reroll]").hasClass("hide"))
-				$("input[name=reroll]").addClass("hide");
-			$("#roll").removeClass("hide");
-			//get the previous dice rolls
-			let rolls = $("#results").children();
-			let ones = 0;
-			for(let i = 0; i < rolls.length; i++){
-				if($(rolls[i]).text() == 1)
-					ones++;
-			}
-			$(this).after('<label id="ones">' + ones + '</label>');
-			$(this).remove();
-			let results = $(".result");
-			for(let i = 0; i < results.length; i++)
-				$(results[i]).empty();
-			$("#checkboxes").addClass("hide");
-			$("#results").empty();
-			//update uppers and grand total
-			let upper = parseInt($("#upper").text());
-			upper += ones;
-			let grand = parseInt($("#grand").text());
-			grand += ones;		
-			if(upper > 62 && $("#bonus").text() != 35){
-				$("#bonus").text(35);
-				upper += 35;
-				grand += 35;		
-			}		
-			$("#upper").text(upper);
-			$("#grand").text(grand);
-		}
-	});
+	// Replace your existing $("#ones").on("click", ...) with this:
+$("#ones").on("click", function(e) {
+    e.preventDefault();
+    
+    // Logic: Count the ones
+    let rolls = $("#results").children();
+    let onesCount = 0;
+    rolls.each(function() {
+        if ($(this).text() == 1) onesCount++;
+    });
+
+    // Call the helper (pass 'upper' because ones is in the upper section)
+    finalizeScore(this, onesCount, 'upper');
+});
 	
 	$("#twos").on("click", function(){
 		event.preventDefault();
@@ -1239,6 +1218,31 @@ $(function(){
 		$(this).addClass("hide");
 	});	
 });
+
+// Add this helper function to your script.js
+function finalizeScore(buttonElement, scoreValue, section) {
+    // 1. Update the button to show the score label
+    $(buttonElement).after('<label>' + scoreValue + '</label>');
+    $(buttonElement).remove();
+    
+    // 2. Identify target totals based on section ("upper" or "lower")
+    let totalSelector = (section === 'upper') ? "#upper" : "#lower";
+    let grandSelector = "#grand";
+    
+    // 3. Update the values
+    let currentTotal = parseInt($(totalSelector).text());
+    let grandTotal = parseInt($(grandSelector).text());
+    
+    $(totalSelector).text(currentTotal + scoreValue);
+    $(grandSelector).text(grandTotal + scoreValue);
+    
+    // 4. Cleanup UI
+    $("#checkboxes").addClass("hide");
+    $("#results").empty();
+    $("#roll").removeClass("hide");
+    $("input[name=dice]").prop("checked", false);
+}
+
 function rollDice(dice){	
 	return Math.floor(Math.random() * 6 + 1);
 }

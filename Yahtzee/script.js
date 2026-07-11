@@ -1242,8 +1242,8 @@ function finalizeScore(buttonElement, scoreValue, section) {
     $("input[name=dice]").prop("checked", false);
 
 	if($("#roll").hasClass("hide")){
-		if(!$("input[name=reroll]").hasClass("hide"))
-			$("input[name=reroll]").addClass("hide");
+		if(!$("#reroll").hasClass("hide"))
+			$("#reroll").addClass("hide");
 		$("#roll").removeClass("hide");
 }
 

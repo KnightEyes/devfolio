@@ -1084,7 +1084,7 @@ $("#ones").on("click", function(e) {
 		if(turn >= 3)
 			$("input[name=reroll]").addClass("hide");
 		//get the previous dice rolls
-		let rolls = $("#results").children();
+		let dice = $("#results").children();
 		//get the checkboxes
 		let boxes = $("input[name=dice]");	
 		//get the images
@@ -1096,8 +1096,8 @@ $("#ones").on("click", function(e) {
 			if(!$(boxes[i]).prop("checked")){
 				//change number in hidden list
 				let newRoll = rollDice(i);
-				if(newRoll != rolls[i]){
-					$(rolls[i]).text(newRoll);
+				if(newRoll != dice[i]){
+					$(dice[i]).text(newRoll);
 					//remove current dice image
 					$(results[i]).empty();
 					//add new dice image

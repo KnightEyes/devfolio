@@ -1,3 +1,8 @@
+/*
+A new function at the button should eliminate repetitive code.
+The ones event is currently being tested.
+*/
+
 $(function(){
 	
 	//Upon startup

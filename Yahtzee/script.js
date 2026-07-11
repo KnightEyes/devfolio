@@ -1245,6 +1245,7 @@ function finalizeScore(buttonElement, scoreValue, section) {
 		if(!$("#reroll").hasClass("hide"))
 			$("#reroll").addClass("hide");
 		$("#roll").removeClass("hide");
+	}
 }
 
 function rollDice(dice){	

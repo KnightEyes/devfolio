@@ -1239,8 +1239,12 @@ function finalizeScore(buttonElement, scoreValue, section) {
     // 4. Cleanup UI
     $("#checkboxes").addClass("hide");
     $("#results").empty();
-    $("#roll").removeClass("hide");
     $("input[name=dice]").prop("checked", false);
+
+	if($("#roll").hasClass("hide")){
+		if(!$("input[name=reroll]").hasClass("hide"))
+			$("input[name=reroll]").addClass("hide");
+		$("#roll").removeClass("hide");
 }
 
 function rollDice(dice){	

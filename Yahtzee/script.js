@@ -1250,7 +1250,7 @@ function finalizeScore(buttonElement, scoreValue, section) {
     $(".results").empty();
     $("input[name=dice]").prop("checked", false);
 	
-	}
+	
 }
 
 function rollDice(dice){	

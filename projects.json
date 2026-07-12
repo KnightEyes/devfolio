@@ -1,5 +1,14 @@
 [
-  { "name": "Monopoly", "url": "https://knighteyes.github.io/devfolio/Monopoly/home.html" },
-  { "name": "Yahtzee", "url": "https://knighteyes.github.io/devfolio/Yahtzee/home.html" },
-  { "name": "Pangean Legacy", "url": "https://knighteyes.itch.io/the-pangean-legacy" }
+  {
+    "name": "Monopoly",
+    "url": "https://knighteyes.github.io/devfolio/monopoly/home.html",
+    "description": "A web-based implementation of the classic board game, focusing on state management and game loop logic.",
+    "tech": ["JavaScript", "DOM API", "CSS"]
+  },
+  {
+    "name": "Yahtzee",
+    "url": "https://knighteyes.github.io/devfolio/yahtzee/home.html",
+    "description": "Interactive dice game featuring complex probability calculations and dynamic scoring interfaces.",
+    "tech": ["JavaScript", "Event Handling"]
+  }
 ]

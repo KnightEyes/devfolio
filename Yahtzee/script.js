@@ -361,7 +361,10 @@ $(function(){
 	// Replace your existing $("#ones").on("click", ...) with this:
 $("#ones").on("click", function(e) {
     e.preventDefault();
-    
+    if($("#roll").hasClass("hide")){
+			if(!$("input[name=reroll]").hasClass("hide"))
+				$("input[name=reroll]").addClass("hide");
+			$("#roll").removeClass("hide");
     // Logic: Count the ones
     let rolls = $("#results").children();
     let onesCount = 0;
@@ -371,6 +374,7 @@ $("#ones").on("click", function(e) {
 
     // Call the helper (pass 'upper' because ones is in the upper section)
     finalizeScore(this, onesCount, 'upper');
+	}
 });
 	
 	$("#twos").on("click", function(){
@@ -1245,11 +1249,7 @@ function finalizeScore(buttonElement, scoreValue, section) {
     $("#checkboxes").addClass("hide");
     $(".results").empty();
     $("input[name=dice]").prop("checked", false);
-
-	if($("#roll").hasClass("hide")){
-		if(!$("#reroll").hasClass("hide"))
-			$("#reroll").addClass("hide");
-		$("#roll").removeClass("hide");
+	
 	}
 }
 

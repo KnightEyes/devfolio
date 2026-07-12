@@ -377,7 +377,7 @@ $("#ones").on("click", function(e) {
 	}
 });
 	
-$("#twos").on("click", function(){
+$("#twos").on("click", function(e){
 	 e.preventDefault();
 	if($("#roll").hasClass("hide")){
 		if(!$("input[name=reroll]").hasClass("hide"))
@@ -394,7 +394,7 @@ $("#twos").on("click", function(){
 	}
 });
 	
-$("#threes").on("click", function(){
+$("#threes").on("click", function(e){
 	 e.preventDefault();
 	if($("#roll").hasClass("hide")){
 		if(!$("input[name=reroll]").hasClass("hide"))
@@ -411,7 +411,7 @@ $("#threes").on("click", function(){
 	}
 });
 
-$("#fours").on("click", function(){
+$("#fours").on("click", function(e){
 	 e.preventDefault();
 	if($("#roll").hasClass("hide")){
 		if(!$("input[name=reroll]").hasClass("hide"))
@@ -428,7 +428,7 @@ $("#fours").on("click", function(){
 	}
 });
 
-$("#fives").on("click", function(){
+$("#fives").on("click", function(e){
 	 e.preventDefault();
 	if($("#roll").hasClass("hide")){
 		if(!$("input[name=reroll]").hasClass("hide"))
@@ -445,7 +445,7 @@ $("#fives").on("click", function(){
 	}
 });
 
-$("#sixes").on("click", function(){
+$("#sixes").on("click", function(e){
 	 e.preventDefault();
 	if($("#roll").hasClass("hide")){
 		if(!$("input[name=reroll]").hasClass("hide"))

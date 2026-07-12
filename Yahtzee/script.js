@@ -359,7 +359,7 @@ $(function(){
 	});
 	//Uppers
 	// Replace your existing $("#ones").on("click", ...) with this:
-$("#ones").on("click", function(e) {
+$(".ones").on("click", function(e) {
     e.preventDefault();
     if($("#roll").hasClass("hide")){
 			if(!$("input[name=reroll]").hasClass("hide"))

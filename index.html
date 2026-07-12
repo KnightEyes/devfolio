@@ -14,19 +14,26 @@
 
 	
 <script>
-	const projects = [
-	  { name: 'Monopoly', url: 'https://knighteyes.github.io/devfolio/Monopoly/home.html' },
-	  { name: 'Yahtzee', url: 'https://knighteyes.github.io/devfolio/Yahtzee/home.html' },
-	  { name: 'Pangean Legacy', url: 'https://knighteyes.itch.io/the-pangean-legacy' },
-	];
+const container = document.querySelector('#project-container');
 
-	const container = document.querySelector('#project-container');
+async function loadProjects() {
+  try {
+    const response = await fetch('projects.json');
+    const projects = await response.json();
 
-	projects.forEach(project => {
-	  const li = document.createElement('li');
-	  li.innerHTML = `<a href="${project.url}" target="_blank" rel="noopener">${project.name}</a>`;
-	  container.appendChild(li);
-	});
+    projects.forEach(project => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${project.url}" target="_blank" rel="noopener">${project.name}</a>`;
+      container.appendChild(li);
+    });
+  } catch (error) {
+    console.error('Error loading projects:', error);
+    container.innerHTML = '<li>Unable to load projects.</li>';
+  }
+}
+
+loadProjects();
+
 </script>
 	
 </body>

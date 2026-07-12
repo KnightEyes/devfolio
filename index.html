@@ -8,27 +8,22 @@
 <body>
 	<h1>Welcome!</h1>
 	<p>Hello and thank you for visiting my portfolio page (AKA Devfolio). Here is a list of projects I've worked on for the sake curiousity and skill building.</p>
-	<ol>
-		<li><a href="Monopoly/home.html" target="_blank">Monopoly</a></li>
-		<li><a href="Yahtzee/home.html" target="_blank">Yahtzee</a></li>
-		<li><a href="https://knighteyes.itch.io/the-pangean-legacy" target="_blank">Pangean Legacy</a></li>
-	</ol>
+	<ul id="project-container"></ul>
 
 
 	<script>
-		
-		//Data from JSON file
-		const data = 'https://knighteyes.github.io/devfolio/data.json';
-		
-		async function getData(file) {
-		  let response = await fetch(file);
-			if(!response.ok)
-					throw new Error('HTTP ERROR. Status', response.json);
-		  let data = await response.json();
-			return data;
-		}
-		
-	</script>
+		const projects = [
+		  { name: 'Monopoly', url: 'https://knighteyes.github.io/devfolio/Monopoly' },
+		  { name: 'Yahtzee', url: 'https://knighteyes.github.io/devfolio/Yahtzee' },
+		];
 
+		const container = document.querySelector('#project-container');
+
+		projects.forEach(project => {
+		  const li = document.createElement('li');
+		  li.innerHTML = `<a href="${project.url}" target="_blank" rel="noopener">${project.name}</a>`;
+		  container.appendChild(li);
+		});
+	</script>
 	
 </body>

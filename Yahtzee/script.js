@@ -367,196 +367,100 @@ $("#ones").on("click", function(e) {
 			$("#roll").removeClass("hide");
     // Logic: Count the ones
     let rolls = $("#results").children();
-    let onesCount = 0;
+    let count = 0;
     rolls.each(function() {
-        if ($(this).text() == 1) onesCount++;
+        if ($(this).text() == 1) count++;
     });
 
     // Call the helper (pass 'upper' because ones is in the upper section)
-    finalizeScore(this, onesCount, 'upper');
+    finalizeScore(this, count, 'upper');
 	}
 });
 	
-	$("#twos").on("click", function(){
-		event.preventDefault();
-		$("input[name=dice]").prop("checked", false);
-		if($("#roll").hasClass("hide")){
-			if(!$("input[name=reroll]").hasClass("hide"))
-				$("input[name=reroll]").addClass("hide");
-			$("#roll").removeClass("hide");
-			//get the previous dice rolls
-			let rolls = $("#results").children();
-			let twos = 0;
-			for(let i = 0; i < rolls.length; i++){
-				if($(rolls[i]).text() == 2)
-					twos += 2;
-			}
-			$(this).after('<label id="twos">' + twos + '</label>');
-			$(this).remove();
-			let results = $(".result");
-			for(let i = 0; i < results.length; i++)
-				$(results[i]).empty();
-			$("#checkboxes").addClass("hide");
-			$("#results").empty();
-			//update uppers and grand total
-			let upper = parseInt($("#upper").text());
-			upper += twos;
-			let grand = parseInt($("#grand").text());
-			grand += twos;
-			if(upper > 62 && $("#bonus").text() != 35){
-				$("#bonus").text(35);
-				upper += 35;
-				grand += 35;		
-			}		
-			$("#upper").text(upper);
-			$("#grand").text(grand);
-		}
-	});
+$("#twos").on("click", function(){
+	 e.preventDefault();
+	if($("#roll").hasClass("hide")){
+		if(!$("input[name=reroll]").hasClass("hide"))
+			$("input[name=reroll]").addClass("hide");
+		$("#roll").removeClass("hide");
 	
-	$("#threes").on("click", function(){
-		event.preventDefault();
-		$("input[name=dice]").prop("checked", false);
-		if($("#roll").hasClass("hide")){
-			if(!$("input[name=reroll]").hasClass("hide"))
-				$("input[name=reroll]").addClass("hide");
-			$("#roll").removeClass("hide");
-			//get the previous dice rolls
-			let rolls = $("#results").children();
-			let threes = 0;
-			for(let i = 0; i < rolls.length; i++){
-				if($(rolls[i]).text() == 3)
-					threes += 3;
-			}
-			$(this).after('<label id="threes">' + threes + '</label>');
-			$(this).remove();
-			let results = $(".result");
-			for(let i = 0; i < results.length; i++)
-				$(results[i]).empty();
-			$("#checkboxes").addClass("hide");
-			$("#results").empty();
-			//update uppers and grand total
-			let upper = parseInt($("#upper").text());
-			upper += threes;
-			let grand = parseInt($("#grand").text());
-			grand += threes;
-			if(upper > 62 && $("#bonus").text() != 35){
-				$("#bonus").text(35);
-				upper += 35;
-				grand += 35;		
-			}		
-			$("#upper").text(upper);
-			$("#grand").text(grand);
-		}
+	let rolls = $("#results").children();
+	let count = 0;
+	rolls.each(function() {
+		if ($(this).text() == 2) count += 2;
 	});
+		
+	finalizeScore(this, count, 'upper');
+	}
+});
 	
-	$("#fours").on("click", function(){
-		event.preventDefault();
-		$("input[name=dice]").prop("checked", false);
-		if($("#roll").hasClass("hide")){
-			if(!$("input[name=reroll]").hasClass("hide"))
-				$("input[name=reroll]").addClass("hide");
-			$("#roll").removeClass("hide");
-			//get the previous dice rolls
-			let rolls = $("#results").children();
-			let fours = 0;
-			for(let i = 0; i < rolls.length; i++){
-				if($(rolls[i]).text() == 4)
-					fours += 4;
-			}
-			$(this).after('<label id="fours">' + fours + '</label>');
-			$(this).remove();
-			let results = $(".result");
-			for(let i = 0; i < results.length; i++)
-				$(results[i]).empty();
-			$("#checkboxes").addClass("hide");
-			$("#results").empty();
-			//update uppers and grand total
-			let upper = parseInt($("#upper").text());
-			upper += fours;
-			let grand = parseInt($("#grand").text());
-			grand += fours;
-			if(upper > 62 && $("#bonus").text() != 35){
-				$("#bonus").text(35);
-				upper += 35;
-				grand += 35;		
-			}		
-			$("#upper").text(upper);
-			$("#grand").text(grand);
-		}
+$("#threes").on("click", function(){
+	 e.preventDefault();
+	if($("#roll").hasClass("hide")){
+		if(!$("input[name=reroll]").hasClass("hide"))
+			$("input[name=reroll]").addClass("hide");
+		$("#roll").removeClass("hide");
+	
+	let rolls = $("#results").children();
+	let count = 0;
+	rolls.each(function() {
+		if ($(this).text() == 3) count += 3;
 	});
+		
+	finalizeScore(this, count, 'upper');
+	}
+});
+
+$("#fours").on("click", function(){
+	 e.preventDefault();
+	if($("#roll").hasClass("hide")){
+		if(!$("input[name=reroll]").hasClass("hide"))
+			$("input[name=reroll]").addClass("hide");
+		$("#roll").removeClass("hide");
 	
-	$("#fives").on("click", function(){
-		event.preventDefault();
-		$("input[name=dice]").prop("checked", false);
-		if($("#roll").hasClass("hide")){
-			if(!$("input[name=reroll]").hasClass("hide"))
-				$("input[name=reroll]").addClass("hide");
-			$("#roll").removeClass("hide");
-			//get the previous dice rolls
-			let rolls = $("#results").children();
-			let fives = 0;
-			for(let i = 0; i < rolls.length; i++){
-				if($(rolls[i]).text() == 5)
-					fives += 5;
-			}
-			$(this).after('<label id="fives">' + fives + '</label>');
-			$(this).remove();
-			let results = $(".result");
-			for(let i = 0; i < results.length; i++)
-				$(results[i]).empty();
-			$("#checkboxes").addClass("hide");
-			$("#results").empty();
-			//update uppers and grand total
-			let upper = parseInt($("#upper").text());
-			upper += fives;
-			let grand = parseInt($("#grand").text());
-			grand += fives;
-			if(upper > 62 && $("#bonus").text() != 35){
-				$("#bonus").text(35);
-				upper += 35;
-				grand += 35;		
-			}		
-			$("#upper").text(upper);
-			$("#grand").text(grand);
-		}
+	let rolls = $("#results").children();
+	let count = 0;
+	rolls.each(function() {
+		if ($(this).text() == 4) count += 4;
 	});
+		
+	finalizeScore(this, count, 'upper');
+	}
+});
+
+$("#fives").on("click", function(){
+	 e.preventDefault();
+	if($("#roll").hasClass("hide")){
+		if(!$("input[name=reroll]").hasClass("hide"))
+			$("input[name=reroll]").addClass("hide");
+		$("#roll").removeClass("hide");
 	
-	$("#sixes").on("click", function(){
-		event.preventDefault();
-		$("input[name=dice]").prop("checked", false);
-		if($("#roll").hasClass("hide")){
-			if(!$("input[name=reroll]").hasClass("hide"))
-				$("input[name=reroll]").addClass("hide");
-			$("#roll").removeClass("hide");
-			//get the previous dice rolls
-			let rolls = $("#results").children();
-			let sixes = 0;
-			for(let i = 0; i < rolls.length; i++){
-				if($(rolls[i]).text() == 6)
-					sixes += 6;
-			}
-			$(this).after('<label id="sixes">' + sixes + '</label>');
-			$(this).remove();
-			let results = $(".result");
-			for(let i = 0; i < results.length; i++)
-				$(results[i]).empty();
-			$("#checkboxes").addClass("hide");
-			$("#results").empty();
-			//update uppers and grand total
-			let upper = parseInt($("#upper").text());
-			upper += sixes;
-			let grand = parseInt($("#grand").text());
-			grand += sixes;
-			if(upper > 62 && $("#bonus").text() != 35){
-				$("#bonus").text(35);
-				upper += 35;
-				grand += 35;		
-			}		
-			$("#upper").text(upper);
-			$("#grand").text(grand);
-		}
+	let rolls = $("#results").children();
+	let count = 0;
+	rolls.each(function() {
+		if ($(this).text() == 5) count += 5;
 	});
+		
+	finalizeScore(this, count, 'upper');
+	}
+});
+
+$("#sixes").on("click", function(){
+	 e.preventDefault();
+	if($("#roll").hasClass("hide")){
+		if(!$("input[name=reroll]").hasClass("hide"))
+			$("input[name=reroll]").addClass("hide");
+		$("#roll").removeClass("hide");
 	
+	let rolls = $("#results").children();
+	let count = 0;
+	rolls.each(function() {
+		if ($(this).text() == 6) count += 6;
+	});
+		
+	finalizeScore(this, count, 'upper');
+	}
+});
 	//Player 2
 	//Lowers
 	$("#3kind2").on("click", function(){
@@ -1233,26 +1137,20 @@ function finalizeScore(buttonElement, scoreValue, section) {
     // 1. Update the button to show the score label
     $(buttonElement).after('<label>' + scoreValue + '</label>');
     $(buttonElement).remove();
-    
     // 2. Identify target totals based on section ("upper" or "lower")
     let totalSelector = (section === 'upper') ? "#upper" : "#lower";
     let grandSelector = "#grand";
-    
     // 3. Update the values
     let currentTotal = parseInt($(totalSelector).text());
     let grandTotal = parseInt($(grandSelector).text());
-    
     $(totalSelector).text(currentTotal + scoreValue);
     $(grandSelector).text(grandTotal + scoreValue);
-    
     // 4. Cleanup UI
     $("#checkboxes").addClass("hide");
 	let results = $(".result");
 	for(let i = 0; i < results.length; i++)
 		$(results[i]).empty();	
     $("input[name=dice]").prop("checked", false);
-	
-	
 }
 
 function rollDice(dice){	

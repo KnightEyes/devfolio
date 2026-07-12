@@ -1247,7 +1247,10 @@ function finalizeScore(buttonElement, scoreValue, section) {
     
     // 4. Cleanup UI
     $("#checkboxes").addClass("hide");
-    $(".results").empty();
+	let results =  $(".results");
+	results.each(function(){
+		this.empty();
+	})
     $("input[name=dice]").prop("checked", false);
 	
 	

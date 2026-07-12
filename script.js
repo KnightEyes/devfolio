@@ -1,19 +1,19 @@
-const container = document.querySelector('#project-container');
+const grid = document.querySelector('#portfolio-grid');
 
-async function loadProjects() {
-  try {
-    const response = await fetch('projects.json');
-    const projects = await response.json();
+async function renderProjects() {
+  const response = await fetch('projects.json');
+  const projects = await response.json();
 
-    projects.forEach(project => {
-      const li = document.createElement('li');
-      li.innerHTML = `<a href="${project.url}" target="_blank" rel="noopener">${project.name}</a>`;
-      container.appendChild(li);
-    });
-  } catch (error) {
-    console.error('Error loading projects:', error);
-    container.innerHTML = '<li>Unable to load projects.</li>';
-  }
+  grid.innerHTML = projects.map(p => `
+    <div class="project-card">
+      <h3>${p.name}</h3>
+      <p>${p.description}</p>
+      <div class="tech-tags">
+        ${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}
+      </div>
+      <a href="${p.url}" target="_blank" rel="noopener">View Project</a>
+    </div>
+  `).join('');
 }
 
-loadProjects();
+renderProjects();
